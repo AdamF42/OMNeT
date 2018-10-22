@@ -1,0 +1,27 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1284 rid General-0-20181017-14:07:46-32563 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t ch n ch cm 1
+MS id 1 d ""
+MC id 2 c queueing::Source t org.omnetpp.queueing.Source pid 1 n sorgente
+GC m 2 g 1 n out o 1
+MS id 2 d p=43,34;i=block/source
+MC id 3 c queueing::Queue t org.omnetpp.queueing.Queue pid 1 n server
+GC m 3 g 3 n out o 1
+MS id 3 d p=95,121;i=block/queue;q=queue
+MC id 4 c queueing::Sink t org.omnetpp.queueing.Sink pid 1 n pozzo
+MS id 4 d p=157,217;i=block/sink
+GC m 3 g 1048576 n in i 0 o 0
+CC sm 2 sg 1 dm 3 dg 1048576
+GC m 4 g 1048576 n in i 0 o 0
+CC sm 3 sg 3 dm 4 dg 1048576
+MB sm 1 tm 2 m initialize(0)
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n newJobTimer pe -1
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n newJobTimer pe 0
+ES t 3.382466644405
+ME
+MB sm 1 tm 3 m initialize(0)
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n end-service pe -1
+ME
+MB sm 1 tm 4 m initialize(0)
+ME
